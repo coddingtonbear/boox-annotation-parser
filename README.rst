@@ -1,6 +1,6 @@
-========
-Overview
-========
+======================
+Boox Annotation Parser
+======================
 
 .. start-badges
 
@@ -38,7 +38,7 @@ Overview
 
 .. end-badges
 
-Parse annotation file exports from your Boox device, and transform them into JSON, YAML, or whatever you want.
+Parse annotation file exports from your Onyx Boox device, and transform them into JSON, YAML, or whatever you want.
 
 * Free software: MIT license
 
@@ -57,35 +57,36 @@ You can also install the in-development version with::
 Documentation
 =============
 
+To use the project from the command-line
+----------------------------------------
 
-To use the project:
+Options:
+
+- ``--input``: (Default: 'stdin') The path to your Boox annotation export file.  If unspecified, reads from stdin.
+- ``--output``: (Default: 'stdin') The path to where you'd like your output written to.  If unspecified, writes to stdout.
+- ``--format``: (Default: 'yaml') The format you'd like your annotations written out in.  Options include:
+  - ``yaml``
+  - ``json``
+  - ``nljson``
+
+::
+
+    boox-annotation-parser --input=/path/to/boox/export.txt --output=/path/to/write/output/to --format=yaml
+
+To use the project as a library
+-------------------------------
 
 .. code-block:: python
 
-    import boox_annotation_parser
-    boox_annotation_parser.longest()
+    from boox_annotation_parser import parser
+
+    with open('/path/to/boox/export.txt', 'r') as inf:
+        parsed = parser.get_annotations(inf)
 
 
 Development
 ===========
 
-To run all the tests run::
+To run the tests run::
 
-    tox
-
-Note, to combine the coverage data from all the tox environments run:
-
-.. list-table::
-    :widths: 10 90
-    :stub-columns: 1
-
-    - - Windows
-      - ::
-
-            set PYTEST_ADDOPTS=--cov-append
-            tox
-
-    - - Other
-      - ::
-
-            PYTEST_ADDOPTS=--cov-append tox
+    pytest
