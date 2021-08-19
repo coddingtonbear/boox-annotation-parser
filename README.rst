@@ -63,7 +63,7 @@ To use the project from the command-line
 Options:
 
 - ``--input``: (Default: 'stdin') The path to your Boox annotation export file.  If unspecified, reads from stdin.
-- ``--output``: (Default: 'stdin') The path to where you'd like your output written to.  If unspecified, writes to stdout.
+- ``--output``: (Default: 'stdout') The path to where you'd like your output written to.  If unspecified, writes to stdout.
 - ``--format``: (Default: 'yaml') The format you'd like your annotations written out in.  Options include:
   - ``yaml``
   - ``json``
