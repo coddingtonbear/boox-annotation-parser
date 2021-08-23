@@ -30,9 +30,9 @@ Boox Annotation Parser
     :alt: Supported implementations
     :target: https://pypi.org/project/boox-annotation-parser
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/coddingtonbear/boox-annotation-parser/v0.1.1.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/coddingtonbear/boox-annotation-parser/v0.1.2.svg
     :alt: Commits since latest release
-    :target: https://github.com/coddingtonbear/boox-annotation-parser/compare/v0.1.1...master
+    :target: https://github.com/coddingtonbear/boox-annotation-parser/compare/v0.1.2...master
 
 
 
