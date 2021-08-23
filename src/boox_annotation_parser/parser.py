@@ -48,16 +48,11 @@ def parse_section_name(line: str) -> str:
 
 
 def parse_time(line: str) -> datetime.datetime:
-    match = re.compile(
-        r".*(\d{4}-\d{2}-\d{2} \d{2}:\d{2}).*"
-    ).search(line)
+    match = re.compile(r".*(\d{4}-\d{2}-\d{2} \d{2}:\d{2}).*").search(line)
     if not match:
         raise ValueError(f"Could not parse time: {line}")
 
-    return datetime.datetime.strptime(
-        match.group(1),
-        "%Y-%m-%d %H:%M"
-    )
+    return datetime.datetime.strptime(match.group(1), "%Y-%m-%d %H:%M")
 
 
 def parse_possible_prefix_line(line: str) -> Tuple[Optional[str], str]:
@@ -121,25 +116,21 @@ def get_annotations(file: TextIO) -> AnnotationList:
         elif parsing_phase == ParsingPhase.END:
             if section_name is None:
                 raise ValueError(
-                    "Found no section_name in section ending "
-                    f"at line {line_no}."
+                    "Found no section_name in section ending " f"at line {line_no}."
                 )
             elif time is None:
-                raise ValueError(
-                    f"Found no time in section ending at line {line_no}."
-                )
+                raise ValueError(f"Found no time in section ending at line {line_no}.")
             elif page_number is None:
                 raise ValueError(
-                    "Found no page_number in section ending "
-                    f"at line {line_no}."
+                    "Found no page_number in section ending " f"at line {line_no}."
                 )
 
             all_annotations.append(
                 Annotation(
                     section_name=section_name,
                     time=time,
-                    original_text='\n'.join(original_text),
-                    annotations='\n'.join(annotations),
+                    original_text="\n".join(original_text),
+                    annotations="\n".join(annotations),
                     page_number=page_number,
                 )
             )

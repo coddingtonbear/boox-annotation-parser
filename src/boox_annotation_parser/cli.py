@@ -20,36 +20,36 @@ import sys
 from . import serializers, parser
 
 SERIALIZERS = {
-    'json': serializers.JsonSerializer,
-    'nljson': serializers.NLJsonSerializer,
-    'yaml': serializers.YamlSerializer,
+    "json": serializers.JsonSerializer,
+    "nljson": serializers.NLJsonSerializer,
+    "yaml": serializers.YamlSerializer,
 }
 
 
 def main(argv=sys.argv):
     arg_parser = argparse.ArgumentParser()
     arg_parser.add_argument(
-        '-i',
-        '--input',
-        nargs='?',
-        type=argparse.FileType('r'),
+        "-i",
+        "--input",
+        nargs="?",
+        type=argparse.FileType("r"),
         default=sys.stdin,
-        help='File to read from (default: stdin)'
+        help="File to read from (default: stdin)",
     )
     arg_parser.add_argument(
-        '-o',
-        '--output',
-        nargs='?',
-        type=argparse.FileType('w'),
+        "-o",
+        "--output",
+        nargs="?",
+        type=argparse.FileType("w"),
         default=sys.stdout,
-        help='File to write to (default: stdout)',
+        help="File to write to (default: stdout)",
     )
     arg_parser.add_argument(
-        '-f',
-        '--format',
-        default='yaml',
+        "-f",
+        "--format",
+        default="yaml",
         choices=SERIALIZERS.keys(),
-        help='Format to write output in.'
+        help="Format to write output in.",
     )
     args = arg_parser.parse_args(argv[1:])
 
