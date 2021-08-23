@@ -66,7 +66,9 @@ setup(
         "Topic :: Utilities",
     ],
     project_urls={
-        "Issue Tracker": "https://github.com/coddingtonbear/boox-annotation-parser/issues",
+        "Issue Tracker": (
+            "https://github.com/coddingtonbear/boox-annotation-parser/issues"
+        )
     },
     keywords=[
         # eg: 'keyword1', 'keyword2', 'keyword3',
