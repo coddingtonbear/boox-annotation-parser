@@ -1,9 +1,9 @@
+# flake8: noqa
 import datetime
 from io import StringIO
 from unittest import TestCase
 
 from boox_annotation_parser import parser
-
 
 EXAMPLE_FILE = """\
 BOOX Reading Notes | <<Trilogia de la Fundacion (Spanish Edition) - Isaac Asimov (146)>>
@@ -32,7 +32,10 @@ class TestBasic(TestCase):
     def test_parses_file(self):
         annotations = parser.get_annotations(StringIO(EXAMPLE_FILE))
 
-        assert annotations.name == "Trilogia de la Fundacion (Spanish Edition) - Isaac Asimov (146)"
+        assert (
+            annotations.name
+            == "Trilogia de la Fundacion (Spanish Edition) - Isaac Asimov (146)"
+        )
         assert annotations.author == "Isaac Asimov"
         assert len(annotations.annotations) == 2
 
@@ -42,14 +45,14 @@ class TestBasic(TestCase):
                 datetime.datetime(2021, 8, 17, 22, 48),
                 "ruegos",
                 "requests",
-                442
+                442,
             ),
             parser.Annotation(
                 "Cuarta parte. Los comerciantes",
                 datetime.datetime(2021, 8, 18, 7, 10),
                 "—Si el intento de comerciar fuera deliberado, excelencia, sería lo más alocado y contrario a las más estrictas reglas de nuestro Gremio.\n—Alocado",
                 "test\n\ntest\n\ntest",
-                443
+                443,
             ),
         ]
 
